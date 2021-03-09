@@ -1,0 +1,632 @@
+[gd_scene load_steps=58 format=2]
+
+[ext_resource path="res://Scenes/Top10button.gd" type="Script" id=1]
+[ext_resource path="res://Resources/bullseye.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Wall-Background-HD-Wallpapers-16562.jpg" type="Texture" id=3]
+[ext_resource path="res://Scripts/Button.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Tutorial button.gd" type="Script" id=5]
+
+[sub_resource type="VisualScriptFunction" id=1]
+resource_name = "_ready"
+
+[sub_resource type="VisualScriptBuiltinFunc" id=2]
+_default_input_values = [ 0.0, 0.0, 0.0 ]
+function = 30
+
+[sub_resource type="VisualScriptFunction" id=3]
+
+[sub_resource type="VisualScriptFunction" id=4]
+
+[sub_resource type="VisualScriptFunction" id=5]
+
+[sub_resource type="VisualScriptFunction" id=6]
+
+[sub_resource type="VisualScriptComment" id=7]
+title = "Step 2"
+description = "Instantiate a circle with random parameters"
+size = Vector2( 328, 57 )
+
+[sub_resource type="CanvasItemMaterial" id=8]
+blend_mode = 1
+
+[sub_resource type="StreamTexture" id=9]
+flags = 4
+
+[sub_resource type="VisualScriptFunction" id=10]
+argument_count = 3
+argument_1/type = 17
+argument_1/name = "viewport"
+argument_2/type = 17
+argument_2/name = "event"
+argument_3/type = 2
+argument_3/name = "shape_idx"
+
+[sub_resource type="VisualScriptTypeCast" id=11]
+_default_input_values = [ null ]
+base_type = "InputEventScreenTouch"
+
+[sub_resource type="VisualScriptPropertyGet" id=12]
+_default_input_values = [ null ]
+set_mode = 2
+base_type = "InputEventScreenTouch"
+base_script = ""
+type_cache = 1
+property = "pressed"
+
+[sub_resource type="VisualScriptFunctionCall" id=13]
+base_type = "Node"
+argument_cache = {
+"args": [  ],
+"default_args": [  ],
+"flags": 9,
+"id": 0,
+"name": "",
+"return": {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "",
+"type": 0,
+"usage": 7
+}
+}
+function = "get_owner"
+
+[sub_resource type="VisualScriptComment" id=14]
+description = "Remove the whole instance of the scene this node is deep in"
+size = Vector2( 464, 70 )
+
+[sub_resource type="VisualScriptCondition" id=15]
+_default_input_values = [ false ]
+
+[sub_resource type="VisualScriptFunctionCall" id=16]
+_default_input_values = [ null ]
+call_mode = 2
+base_type = "Node"
+base_script = ""
+argument_cache = {
+"args": [  ],
+"default_args": [  ],
+"flags": 1,
+"id": 0,
+"name": "",
+"return": {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "",
+"type": 0,
+"usage": 7
+}
+}
+function = "queue_free"
+
+[sub_resource type="VisualScriptComment" id=17]
+description = "Started touching/clicking right now?"
+size = Vector2( 234, 70 )
+
+[sub_resource type="VisualScriptTypeCast" id=18]
+_default_input_values = [ null ]
+base_type = "InputEventMouseButton"
+
+[sub_resource type="VisualScriptPropertyGet" id=19]
+_default_input_values = [ null ]
+set_mode = 2
+base_type = "InputEventMouseButton"
+base_script = ""
+type_cache = 1
+property = "pressed"
+
+[sub_resource type="VisualScriptLocalVarSet" id=20]
+_default_input_values = [ false ]
+var_name = "just_pressed"
+type = 1
+
+[sub_resource type="VisualScriptLocalVarSet" id=21]
+_default_input_values = [ false ]
+var_name = "just_pressed"
+type = 1
+
+[sub_resource type="VisualScript" id=22]
+data = {
+"base_type": "Area2D",
+"functions": [ {
+"data_connections": [ 0, 1, 2, 0, 2, 0, 3, 0, 16, 0, 6, 0, 4, 0, 7, 0, 0, 1, 12, 0, 12, 0, 14, 0, 3, 0, 15, 0, 14, 0, 16, 0 ],
+"function_id": 0,
+"name": "_input_event",
+"nodes": [ 0, Vector2( 760, 120 ), SubResource( 10 ), 2, Vector2( 1040, 120 ), SubResource( 11 ), 3, Vector2( 1380, 180 ), SubResource( 12 ), 4, Vector2( 2240, 440 ), SubResource( 13 ), 5, Vector2( 2440, 120 ), SubResource( 14 ), 6, Vector2( 2280, 200 ), SubResource( 15 ), 7, Vector2( 2560, 220 ), SubResource( 16 ), 9, Vector2( 1320, 540 ), SubResource( 17 ), 12, Vector2( 1400, 340 ), SubResource( 18 ), 14, Vector2( 1740, 480 ), SubResource( 19 ), 15, Vector2( 1680, 100 ), SubResource( 20 ), 16, Vector2( 2040, 400 ), SubResource( 21 ) ],
+"scroll": Vector2( -101.5, -96 ),
+"sequence_connections": [ 0, 0, 2, 15, 0, 6, 16, 0, 6, 6, 0, 7, 2, 1, 12, 2, 0, 15, 12, 0, 16 ]
+}, {
+"data_connections": [  ],
+"function_id": -1,
+"name": "f_312843592",
+"nodes": [  ],
+"scroll": Vector2( 692, -241.25 ),
+"sequence_connections": [  ]
+} ],
+"is_tool_script": false,
+"signals": [  ],
+"variables": [  ],
+"vs_unify": true
+}
+
+[sub_resource type="CircleShape2D" id=23]
+radius = 128.0
+
+[sub_resource type="PackedScene" id=24]
+_bundled = {
+"conn_count": 0,
+"conns": PoolIntArray(  ),
+"editable_instances": [  ],
+"names": PoolStringArray( "Sprite", "material", "texture", "Area2D", "script", "CollisionShape2D", "shape" ),
+"node_count": 3,
+"node_paths": [  ],
+"nodes": PoolIntArray( -1, -1, 0, 0, -1, 2, 1, 0, 2, 1, 0, 0, 0, 3, 3, -1, 1, 4, 2, 0, 1, 0, 5, 5, -1, 1, 6, 3, 0 ),
+"variants": [ SubResource( 8 ), SubResource( 9 ), SubResource( 22 ), SubResource( 23 ) ],
+"version": 2
+}
+
+[sub_resource type="VisualScriptPreload" id=25]
+resource = SubResource( 24 )
+
+[sub_resource type="VisualScriptFunctionCall" id=26]
+_default_input_values = [ null ]
+call_mode = 2
+base_type = "PackedScene"
+base_script = ""
+argument_cache = {
+"args": [ {
+"class_name": "PackedScene.GenEditState",
+"hint": 0,
+"hint_string": "",
+"name": "edit_state",
+"type": 2,
+"usage": 262151
+} ],
+"default_args": [  ],
+"flags": 9,
+"id": 0,
+"name": "",
+"return": {
+"class_name": "Node",
+"hint": 0,
+"hint_string": "",
+"name": "",
+"type": 17,
+"usage": 7
+}
+}
+function = "instance"
+use_default_args = 1
+
+[sub_resource type="VisualScriptSequence" id=27]
+steps = 4
+
+[sub_resource type="VisualScriptSceneNode" id=28]
+node_path = NodePath("/root")
+
+[sub_resource type="VisualScriptFunctionCall" id=29]
+_default_input_values = [ null ]
+call_mode = 2
+base_type = "Viewport"
+base_script = ""
+argument_cache = {
+"args": [  ],
+"default_args": [  ],
+"flags": 9,
+"id": 0,
+"name": "",
+"return": {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "",
+"type": 6,
+"usage": 7
+}
+}
+function = "get_visible_rect"
+
+[sub_resource type="VisualScriptLocalVarSet" id=30]
+_default_input_values = [ Vector2( 0, 0 ) ]
+var_name = "screen_size"
+type = 5
+
+[sub_resource type="VisualScriptComment" id=31]
+title = "Step 1"
+description = "Get the size of the viewport (root node)."
+size = Vector2( 328, 57 )
+
+[sub_resource type="VisualScriptPropertySet" id=32]
+_default_input_values = [ null, Vector2( 0, 0 ) ]
+set_mode = 2
+base_type = "Node2D"
+base_script = ""
+type_cache = {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "scale",
+"type": 5,
+"usage": 7
+}
+property = "scale"
+index = ""
+
+[sub_resource type="VisualScriptPropertyGet" id=33]
+_default_input_values = [ Rect2( 0, 0, 0, 0 ) ]
+set_mode = 3
+base_type = "Node2D"
+type_cache = 5
+basic_type = 6
+property = "size"
+index = ""
+
+[sub_resource type="VisualScriptBuiltinFunc" id=34]
+_default_input_values = [  ]
+function = 33
+
+[sub_resource type="VisualScriptOperator" id=35]
+operator = 8
+
+[sub_resource type="VisualScriptConstructor" id=36]
+_default_input_values = [ 1.0, 1.0 ]
+type = 5
+constructor = {
+"args": [ {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "x",
+"type": 3,
+"usage": 7
+}, {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "y",
+"type": 3,
+"usage": 7
+} ],
+"default_args": [  ],
+"flags": 1,
+"id": 0,
+"name": "Vector2",
+"return": {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "",
+"type": 5,
+"usage": 7
+}
+}
+
+[sub_resource type="VisualScriptComment" id=37]
+description = "Random uniform scale"
+size = Vector2( 208, 59 )
+
+[sub_resource type="VisualScriptPropertySet" id=38]
+_default_input_values = [ null, Color( 0, 0, 0, 0 ) ]
+set_mode = 2
+base_type = "Node2D"
+base_script = ""
+type_cache = {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "modulate",
+"type": 14,
+"usage": 7
+}
+property = "modulate"
+index = ""
+
+[sub_resource type="VisualScriptBuiltinFunc" id=39]
+_default_input_values = [  ]
+function = 32
+
+[sub_resource type="VisualScriptComment" id=40]
+description = "Random color"
+size = Vector2( 208, 59 )
+
+[sub_resource type="VisualScriptConstructor" id=41]
+_default_input_values = [ 0.0, 0.0, 0.0 ]
+type = 14
+constructor = {
+"args": [ {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "r",
+"type": 3,
+"usage": 7
+}, {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "g",
+"type": 3,
+"usage": 7
+}, {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "b",
+"type": 3,
+"usage": 7
+} ],
+"default_args": [  ],
+"flags": 1,
+"id": 0,
+"name": "Color",
+"return": {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "",
+"type": 14,
+"usage": 7
+}
+}
+
+[sub_resource type="VisualScriptBuiltinFunc" id=42]
+_default_input_values = [  ]
+function = 32
+
+[sub_resource type="VisualScriptBuiltinFunc" id=43]
+_default_input_values = [  ]
+function = 32
+
+[sub_resource type="VisualScriptPropertySet" id=44]
+_default_input_values = [ null, Vector2( 0, 0 ) ]
+set_mode = 2
+base_type = "Node2D"
+base_script = ""
+type_cache = {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "position",
+"type": 5,
+"usage": 7
+}
+property = "position"
+index = ""
+
+[sub_resource type="VisualScriptComment" id=45]
+description = "Random position"
+size = Vector2( 208, 59 )
+
+[sub_resource type="VisualScriptDeconstruct" id=46]
+_default_input_values = [ Vector2( 0, 0 ) ]
+type = 5
+elem_cache = [ "x", 3, "y", 3 ]
+
+[sub_resource type="VisualScriptBuiltinFunc" id=47]
+_default_input_values = [  ]
+function = 33
+
+[sub_resource type="VisualScriptBuiltinFunc" id=48]
+_default_input_values = [  ]
+function = 33
+
+[sub_resource type="VisualScriptConstructor" id=49]
+_default_input_values = [ 0.0, 0.0 ]
+type = 5
+constructor = {
+"args": [ {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "x",
+"type": 3,
+"usage": 7
+}, {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "y",
+"type": 3,
+"usage": 7
+} ],
+"default_args": [  ],
+"flags": 1,
+"id": 0,
+"name": "Vector2",
+"return": {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "",
+"type": 5,
+"usage": 7
+}
+}
+
+[sub_resource type="VisualScriptFunctionCall" id=50]
+_default_input_values = [ null ]
+base_type = "Node2D"
+argument_cache = {
+"args": [ {
+"class_name": "Node",
+"hint": 0,
+"hint_string": "",
+"name": "node",
+"type": 17,
+"usage": 7
+}, {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "legible_unique_name",
+"type": 1,
+"usage": 7
+} ],
+"default_args": [  ],
+"flags": 1,
+"id": 0,
+"name": "",
+"return": {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "",
+"type": 0,
+"usage": 7
+}
+}
+function = "add_child"
+use_default_args = 1
+
+[sub_resource type="VisualScript" id=51]
+data = {
+"base_type": "Node2D",
+"functions": [ {
+"data_connections": [  ],
+"function_id": 0,
+"name": "_ready",
+"nodes": [ 0, Vector2( -110, -200 ), SubResource( 1 ), 2, Vector2( 70, -200 ), SubResource( 2 ) ],
+"scroll": Vector2( -50, -100 ),
+"sequence_connections": [ 0, 0, 2 ]
+}, {
+"data_connections": [  ],
+"function_id": 44,
+"name": "_on_Loginbutton_pressed",
+"nodes": [ 44, Vector2( -20, 80 ), SubResource( 3 ) ],
+"scroll": Vector2( -431.5, -313 ),
+"sequence_connections": [  ]
+}, {
+"data_connections": [  ],
+"function_id": 45,
+"name": "_on_Top10button_pressed",
+"nodes": [ 45, Vector2( 0, 0 ), SubResource( 4 ) ],
+"scroll": Vector2( -429.5, -293 ),
+"sequence_connections": [  ]
+}, {
+"data_connections": [  ],
+"function_id": -1,
+"name": "f_312843592",
+"nodes": [  ],
+"scroll": Vector2( 724, -11.75 ),
+"sequence_connections": [  ]
+}, {
+"data_connections": [  ],
+"function_id": 43,
+"name": "_on_Timer_ready",
+"nodes": [ 43, Vector2( 20, 160 ), SubResource( 5 ) ],
+"scroll": Vector2( -461, -313 ),
+"sequence_connections": [  ]
+}, {
+"data_connections": [ 5, 0, 6, 0, 8, 0, 9, 0, 16, 0, 12, 0, 6, 1, 15, 0, 9, 1, 16, 0, 17, 0, 18, 0, 15, 0, 22, 0, 23, 0, 26, 0, 22, 0, 31, 0, 12, 0, 38, 0, 39, 0, 41, 0, 31, 0, 42, 0, 18, 0, 15, 1, 19, 0, 18, 1, 26, 0, 22, 1, 28, 0, 26, 1, 41, 0, 31, 1, 38, 0, 39, 1, 38, 1, 40, 1, 40, 0, 41, 1, 30, 0, 26, 2 ],
+"function_id": 3,
+"name": "_on_Timer_timeout",
+"nodes": [ 3, Vector2( 740, 250 ), SubResource( 6 ), 4, Vector2( 840, 530 ), SubResource( 7 ), 5, Vector2( 780, 610 ), SubResource( 25 ), 6, Vector2( 1020, 610 ), SubResource( 26 ), 7, Vector2( 960, 290 ), SubResource( 27 ), 8, Vector2( 1220, 290 ), SubResource( 28 ), 9, Vector2( 1400, 290 ), SubResource( 29 ), 12, Vector2( 1600, 510 ), SubResource( 30 ), 14, Vector2( 1220, 210 ), SubResource( 31 ), 15, Vector2( 1360, 670 ), SubResource( 32 ), 16, Vector2( 1660, 290 ), SubResource( 33 ), 17, Vector2( 880, 830 ), SubResource( 34 ), 18, Vector2( 1140, 830 ), SubResource( 35 ), 19, Vector2( 880, 970 ), SubResource( 36 ), 21, Vector2( 1060, 750 ), SubResource( 37 ), 22, Vector2( 1640, 670 ), SubResource( 38 ), 23, Vector2( 1400, 910 ), SubResource( 39 ), 25, Vector2( 1420, 830 ), SubResource( 40 ), 26, Vector2( 1580, 930 ), SubResource( 41 ), 28, Vector2( 1400, 1010 ), SubResource( 42 ), 30, Vector2( 1400, 1110 ), SubResource( 43 ), 31, Vector2( 2000, 670 ), SubResource( 44 ), 33, Vector2( 1900, 870 ), SubResource( 45 ), 38, Vector2( 1800, 510 ), SubResource( 46 ), 39, Vector2( 1800, 950 ), SubResource( 47 ), 40, Vector2( 1800, 1070 ), SubResource( 48 ), 41, Vector2( 2040, 990 ), SubResource( 49 ), 42, Vector2( 2260, 670 ), SubResource( 50 ) ],
+"scroll": Vector2( 327, -63 ),
+"sequence_connections": [ 7, 2, 6, 3, 0, 7, 7, 0, 9, 7, 1, 12, 7, 3, 15, 15, 0, 22, 22, 0, 31, 31, 0, 42 ]
+} ],
+"is_tool_script": false,
+"signals": [  ],
+"variables": [  ],
+"vs_unify": true
+}
+
+[sub_resource type="SpriteFrames" id=52]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[node name="Main" type="Node2D"]
+script = SubResource( 51 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Wall-Background-HD-Wallpapers-16562" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 513.448, 301.346 )
+scale = Vector2( 0.400548, 0.373539 )
+texture = ExtResource( 3 )
+
+[node name="Startgamebutton" type="Button" parent="ParallaxBackground"]
+anchor_left = 0.499139
+anchor_top = 0.48
+anchor_right = 0.499139
+anchor_bottom = 0.48
+margin_left = -63.3124
+margin_top = -30.0
+margin_right = 63.6876
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 43.4533, 20.5 )
+text = "Start game"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tutorial button2" type="Button" parent="ParallaxBackground"]
+anchor_left = 0.504
+anchor_top = 0.696
+anchor_right = 0.504
+anchor_bottom = 0.696
+margin_left = -67.1236
+margin_top = -28.969
+margin_right = 59.8763
+margin_bottom = 31.0313
+rect_pivot_offset = Vector2( 43.4533, 20.5 )
+text = "Tutorial"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Loginbutton" type="Button" parent="ParallaxBackground"]
+anchor_left = 0.501
+anchor_top = 0.262
+anchor_right = 0.501
+anchor_bottom = 0.262
+margin_left = -127.024
+margin_top = -32.699
+margin_right = 126.976
+margin_bottom = 32.301
+text = "Login"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Top10button" type="Button" parent="ParallaxBackground"]
+anchor_left = 0.498
+anchor_top = 0.911
+anchor_right = 0.498
+anchor_bottom = 0.911
+margin_left = -64.118
+margin_top = -32.6
+margin_right = 63.882
+margin_bottom = 32.4
+text = "Top 10"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ParallaxBackground"]
+margin_right = 284.0
+margin_bottom = 66.0
+text = "
+Welcome to Aim Trainer,
+
+By Jason Brandwein"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground"]
+position = Vector2( 160.054, 351.954 )
+scale = Vector2( 0.0885985, 0.088874 )
+frames = SubResource( 52 )
+[connection signal="pressed" from="ParallaxBackground/Startgamebutton" to="ParallaxBackground/Startgamebutton" method="_on_Button_pressed"]
+[connection signal="pressed" from="ParallaxBackground/Tutorial button2" to="ParallaxBackground/Tutorial button2" method="_on_Button_pressed"]
+[connection signal="pressed" from="ParallaxBackground/Loginbutton" to="ParallaxBackground/Top10button" method="_on_Loginbutton_pressed"]
+[connection signal="pressed" from="ParallaxBackground/Top10button" to="ParallaxBackground/Top10button" method="_on_Top10button_pressed"]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/top10scene.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Wall-Background-HD-Wallpapers-16562.jpg" type="Texture" id=2]
+[ext_resource path="res://Scenes/Top10text.gd" type="Script" id=3]
+[ext_resource path="res://Resources/happy-times-at-the-ikob.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Wall-Background-HD-Wallpapers-16562" type="Sprite" parent="."]
+position = Vector2( 512.001, 298.76 )
+scale = Vector2( 0.397705, 0.373222 )
+texture = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 320.153
+margin_top = 31.7208
+margin_right = 806.153
+margin_bottom = 483.721
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+meta_underlined = false
+text = "1st: Jason, Hit 104, Attempts 15
+
+2nd: Avrami, Hit 90, Attemps 10
+
+3rd: Dov, Hit 85, Attempts 20
+
+4th: Chanan, Hit 83, Attempts 14
+
+5th: Simcha, Hit 80, Attempts 12
+
+6th: Mike, Hit 79, Attempts 4
+
+7th: Seth, Hit 77, Attempts 5
+
+8th: Mell, Hit 75, Attempts 1
+
+9th: Matthew, Hit 74, Attempts 2
+
+10th: Luis, Hit 73 , Attempts 1"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back home" type="Button" parent="."]
+margin_left = 320.98
+margin_top = 450.284
+margin_right = 481.98
+margin_bottom = 532.284
+rect_pivot_offset = Vector2( 371.074, -503.643 )
+text = "Back Home"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Back home" to="." method="_on_Back_home_pressed"]

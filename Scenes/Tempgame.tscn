@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/EnemySpawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/timerscript.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Wall-Background-HD-Wallpapers-16562.jpg" type="Texture" id=3]
+[ext_resource path="res://Scenes/flags.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Go Agane.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/High score.gd" type="Script" id=6]
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Time left &  hit Counter" type="RichTextLabel" parent="."]
+margin_left = 887.0
+margin_top = 21.0
+margin_right = 1007.0
+margin_bottom = 56.0
+text = "Time goes here.
+"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Time left &  hit Counter"]
+autostart = true
+
+[node name="Go Agane" type="Button" parent="Time left &  hit Counter/Timer"]
+margin_left = 256.0
+margin_top = 367.0
+margin_right = 445.0
+margin_bottom = 519.0
+text = "Go Again"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Go Home" type="Button" parent="Time left &  hit Counter/Timer"]
+margin_left = 513.0
+margin_top = 370.0
+margin_right = 707.0
+margin_bottom = 519.0
+text = "Go Home"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="High score" type="RichTextLabel" parent="Time left &  hit Counter/Timer"]
+margin_right = 143.0
+margin_bottom = 18.0
+text = "asfdasdfasdfsdafasdf"
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Wall-Background-HD-Wallpapers-16562" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 511.641, 303.297 )
+scale = Vector2( 0.399754, 0.374767 )
+texture = ExtResource( 3 )
+
+[node name="Timer2" type="Timer" parent="."]
+autostart = true
+
+[node name="Bullseyespawner" parent="." instance=ExtResource( 1 )]
+[connection signal="timeout" from="Time left &  hit Counter/Timer" to="Time left &  hit Counter" method="_on_Timer_timeout"]
+[connection signal="pressed" from="Time left &  hit Counter/Timer/Go Agane" to="Time left &  hit Counter" method="_on_Go_Agane_pressed"]
+[connection signal="pressed" from="Time left &  hit Counter/Timer/Go Home" to="Time left &  hit Counter" method="_on_Go_Home_pressed"]

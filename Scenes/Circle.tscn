@@ -1,0 +1,140 @@
+[gd_scene load_steps=17 format=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="StreamTexture" id=2]
+flags = 4
+
+[sub_resource type="VisualScriptFunction" id=3]
+resource_name = "_input_event"
+argument_count = 3
+argument_1/type = 17
+argument_1/name = "viewport"
+argument_2/type = 17
+argument_2/name = "event"
+argument_3/type = 2
+argument_3/name = "shape_idx"
+
+[sub_resource type="VisualScriptTypeCast" id=4]
+_default_input_values = [ null ]
+base_type = "InputEventScreenTouch"
+
+[sub_resource type="VisualScriptPropertyGet" id=5]
+_default_input_values = [ null ]
+set_mode = 2
+base_type = "InputEventScreenTouch"
+base_script = ""
+type_cache = 1
+property = "pressed"
+
+[sub_resource type="VisualScriptFunctionCall" id=6]
+base_type = "Node"
+argument_cache = {
+"args": [  ],
+"default_args": [  ],
+"flags": 9,
+"id": 0,
+"name": "",
+"return": {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "",
+"type": 0,
+"usage": 7
+}
+}
+function = "get_owner"
+
+[sub_resource type="VisualScriptComment" id=7]
+description = "Remove the whole instance of the scene this node is deep in"
+size = Vector2( 464, 70 )
+
+[sub_resource type="VisualScriptCondition" id=8]
+_default_input_values = [ false ]
+
+[sub_resource type="VisualScriptFunctionCall" id=9]
+_default_input_values = [ null ]
+call_mode = 2
+base_type = "Node"
+base_script = ""
+argument_cache = {
+"args": [  ],
+"default_args": [  ],
+"flags": 1,
+"id": 0,
+"name": "",
+"return": {
+"class_name": "",
+"hint": 0,
+"hint_string": "",
+"name": "",
+"type": 0,
+"usage": 7
+}
+}
+function = "queue_free"
+
+[sub_resource type="VisualScriptComment" id=10]
+description = "Started touching/clicking right now?"
+size = Vector2( 234, 70 )
+
+[sub_resource type="VisualScriptTypeCast" id=11]
+_default_input_values = [ null ]
+base_type = "InputEventMouseButton"
+
+[sub_resource type="VisualScriptPropertyGet" id=12]
+_default_input_values = [ null ]
+set_mode = 2
+base_type = "InputEventMouseButton"
+base_script = ""
+type_cache = 1
+property = "pressed"
+
+[sub_resource type="VisualScriptLocalVarSet" id=13]
+_default_input_values = [ false ]
+var_name = "just_pressed"
+type = 1
+
+[sub_resource type="VisualScriptLocalVarSet" id=14]
+_default_input_values = [ false ]
+var_name = "just_pressed"
+type = 1
+
+[sub_resource type="VisualScript" id=15]
+data = {
+"base_type": "Area2D",
+"functions": [ {
+"data_connections": [ 0, 1, 2, 0, 2, 0, 3, 0, 16, 0, 6, 0, 4, 0, 7, 0, 0, 1, 12, 0, 12, 0, 14, 0, 3, 0, 15, 0, 14, 0, 16, 0 ],
+"function_id": 0,
+"name": "_input_event",
+"nodes": [ 0, Vector2( 760, 120 ), SubResource( 3 ), 2, Vector2( 1040, 120 ), SubResource( 4 ), 3, Vector2( 1380, 180 ), SubResource( 5 ), 4, Vector2( 2240, 440 ), SubResource( 6 ), 5, Vector2( 2440, 120 ), SubResource( 7 ), 6, Vector2( 2280, 200 ), SubResource( 8 ), 7, Vector2( 2560, 220 ), SubResource( 9 ), 9, Vector2( 1320, 540 ), SubResource( 10 ), 12, Vector2( 1400, 340 ), SubResource( 11 ), 14, Vector2( 1740, 480 ), SubResource( 12 ), 15, Vector2( 1680, 100 ), SubResource( 13 ), 16, Vector2( 2040, 400 ), SubResource( 14 ) ],
+"scroll": Vector2( -101.5, -96 ),
+"sequence_connections": [ 0, 0, 2, 15, 0, 6, 16, 0, 6, 6, 0, 7, 2, 1, 12, 2, 0, 15, 12, 0, 16 ]
+}, {
+"data_connections": [  ],
+"function_id": -1,
+"name": "f_312843592",
+"nodes": [  ],
+"scroll": Vector2( 0, 0 ),
+"sequence_connections": [  ]
+} ],
+"is_tool_script": false,
+"signals": [  ],
+"variables": [  ],
+"vs_unify": true
+}
+
+[sub_resource type="CircleShape2D" id=16]
+radius = 128.0
+
+[node name="Sprite" type="Sprite"]
+material = SubResource( 1 )
+texture = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+script = SubResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 16 )
